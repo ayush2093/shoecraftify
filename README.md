@@ -209,7 +209,7 @@ We welcome contributions from the community! Here's how you can help:
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/ramkumar-lpu/ShoeCraftify.git
+   git clone https://github.com/ayush2093/shoecraftify
    ```
 
 2. **Create a feature branch**
@@ -265,13 +265,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 ## 👥 Team
 
-- **Project Lead**: Ramkumar
-- **GitHub**: [@ramkumar-lpu](https://github.com/ramkumar-lpu)
-
-## 📞 Contact & Support
-
-- **Issues**: [GitHub Issues](https://github.com/ramkumar-lpu/ShoeCraftify/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/ramkumar-lpu/ShoeCraftify/discussions)
+- **Project Lead**: Ayush Singh
+- **GitHub**: (https://github.com/ayush2093)
 
 ## 🙏 Acknowledgments
 
