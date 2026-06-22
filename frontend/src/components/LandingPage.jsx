@@ -166,14 +166,26 @@ const UniqueLandingPage = () => {
       <section className="py-32 bg-[#090909] border-t border-white/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(139,92,246,0.08),transparent_40%)]" />
         <div className="container mx-auto px-6 max-w-4xl flex flex-col md:flex-row items-center gap-12 relative z-10">
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl flex-shrink-0">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl flex-shrink-0"
+          >
             <img 
               src="/ayush.png" 
-              className="w-full h-full object-cover object-top scale-105 hover:scale-110 transition duration-500" 
+              className="w-full h-full object-cover object-top hover:scale-110 transition duration-1000 ease-out-quint" 
               alt="Ayush Singh" 
             />
-          </div>
-          <div className="space-y-4 text-center md:text-left">
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="space-y-4 text-center md:text-left"
+          >
             <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-white/50 block">
               Creator & Lead Engineer
             </span>
@@ -183,7 +195,7 @@ const UniqueLandingPage = () => {
             <p className="text-neutral-400 leading-relaxed text-sm max-w-md">
               Engineered with a passion for creative technology, 3D rendering, and bespoke aesthetics. Bringing next-generation sneaker customization to life.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
