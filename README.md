@@ -82,49 +82,66 @@ We've partnered with premium footwear brands:
 2. **Install dependencies**
    ```bash
    # Install backend dependencies
+   cd backend
    npm install
    
    # Install frontend dependencies
-   cd client
+   cd ../frontend
    npm install
-   cd ..
    ```
 
 3. **Environment Configuration**
    
-   Create a `.env` file in the root directory:
+   Create a `.env` file in the `backend/` directory:
    ```env
-   PORT=5000
-   MONGODB_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
-   STRIPE_SECRET_KEY=your_stripe_secret_key
-   AWS_ACCESS_KEY_ID=your_aws_access_key
-   AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-   AWS_BUCKET_NAME=your_s3_bucket_name
+   PORT=5001
+   MONGODB_URI=mongodb://localhost:27017/shoecraftify
+   SESSION_SECRET=your_session_secret
+   FRONTEND_URL=http://localhost:5173
+   NODE_ENV=development
+
+   GOOGLE_CLIENT_ID=your_google_client_id
+   GOOGLE_CLIENT_SECRET=your_google_client_secret
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+   EMAIL_USER=your_email@gmail.com
+   EMAIL_PASSWORD=your_gmail_app_password
+   RAZORPAY_KEY_ID=your_razorpay_key_id
+   RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+   HF_TOKEN=your_huggingface_token
+   ```
+
+   Create a `.env` file in the `frontend/` directory:
+   ```env
+   VITE_APP_NAME=SHOECREATIFY
+   VITE_BACKEND_URL=http://localhost:5001
+
+   REACT_APP_CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   REACT_APP_CLOUDINARY_PROFILE_PRESET=profile_pictures
+
+   VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
+   RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+   RAZORPAY_STATIC_LINK=your_razorpay_payment_link
    ```
 
 4. **Run the application**
    
-   Development mode:
+   Run the backend dev server:
    ```bash
-   # Run backend and frontend concurrently
+   cd backend
+   npm run dev
+   ```
+
+   Run the frontend dev server:
+   ```bash
+   cd frontend
    npm run dev
    ```
    
-   Production mode:
-   ```bash
-   # Build frontend
-   cd client
-   npm run build
-   cd ..
-   
-   # Start server
-   npm start
-   ```
-
 5. **Access the application**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:5000
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:5001
 
 ## 🚀 Usage Guide
 
@@ -172,28 +189,20 @@ We've partnered with premium footwear brands:
 
 ```
 ShoeCraftify/
-├── client/                 # Frontend React application
-│   ├── public/            # Static files
-│   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── pages/         # Page components
-│   │   ├── redux/         # State management
-│   │   ├── services/      # API services
-│   │   ├── utils/         # Utility functions
-│   │   └── App.js         # Main app component
+├── backend/                # Backend Node.js Express server
+│   ├── config/            # Transporter & Passport auth config
+│   ├── models/            # Mongoose database models
+│   ├── routes/            # Express router endpoints
+│   ├── server.js          # Main entry file
 │   └── package.json
-├── server/                # Backend Node.js application
-│   ├── controllers/       # Request handlers
-│   ├── models/            # Database models
-│   ├── routes/            # API routes
-│   ├── middleware/        # Custom middleware
-│   ├── config/            # Configuration files
-│   └── server.js          # Entry point
-├── models/                # 3D shoe models
-├── assets/                # Images and resources
-├── .env                   # Environment variables
-├── .gitignore            # Git ignore file
-├── package.json          # Project dependencies
+├── frontend/               # Frontend React Vite application
+│   ├── public/            # Static files & nikeShoes.glb 3D asset
+│   ├── src/
+│   │   ├── components/    # UI & editor views (Login, OTP, Payment)
+│   │   ├── App.jsx        # Main application component
+│   │   ├── main.jsx       # Client entry script
+│   │   └── index.css      # Custom styling sheets
+│   └── package.json
 └── README.md             # Project documentation
 ```
 
