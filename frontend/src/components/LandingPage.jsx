@@ -162,6 +162,31 @@ const UniqueLandingPage = () => {
         </div>
       </section>
 
+      {/* DEVELOPER SECTION */}
+      <section className="py-32 bg-[#090909] border-t border-white/10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(139,92,246,0.08),transparent_40%)]" />
+        <div className="container mx-auto px-6 max-w-4xl flex flex-col md:flex-row items-center gap-12 relative z-10">
+          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl flex-shrink-0">
+            <img 
+              src="/ayush.png" 
+              className="w-full h-full object-cover object-top scale-105 hover:scale-110 transition duration-500" 
+              alt="Ayush Singh" 
+            />
+          </div>
+          <div className="space-y-4 text-center md:text-left">
+            <span className="uppercase tracking-[0.3em] text-[10px] font-bold text-white/50 block">
+              Creator & Lead Engineer
+            </span>
+            <h3 className="text-4xl md:text-5xl font-light leading-tight">
+              Made by <span className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-indigo-400">Ayush Singh</span> with ❤️
+            </h3>
+            <p className="text-neutral-400 leading-relaxed text-sm max-w-md">
+              Engineered with a passion for creative technology, 3D rendering, and bespoke aesthetics. Bringing next-generation sneaker customization to life.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-60 text-center">
         <h2 className="text-6xl md:text-[8rem] font-light mb-12">
