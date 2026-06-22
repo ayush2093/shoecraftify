@@ -2,7 +2,8 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowRight, Palette, Shield, MousePointer2 
+  ArrowRight, Palette, Shield, MousePointer2,
+  Github, Linkedin, Instagram
 } from 'lucide-react';
 import Premium_Sneaker_Customization_Video from "../assets/Premium_Sneaker_Customization_Video.mp4";
 
@@ -166,19 +167,58 @@ const UniqueLandingPage = () => {
       <section className="py-32 bg-[#090909] border-t border-white/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(139,92,246,0.08),transparent_40%)]" />
         <div className="container mx-auto px-6 max-w-4xl flex flex-col md:flex-row items-center gap-12 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl flex-shrink-0"
-          >
-            <img 
-              src="/ayush.png" 
-              className="w-full h-full object-cover object-top hover:scale-110 transition duration-1000 ease-out-quint" 
-              alt="Ayush Singh" 
-            />
-          </motion.div>
+          <div className="flex flex-col items-center gap-6 flex-shrink-0">
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-white/20 shadow-2xl"
+            >
+              <img 
+                src="/ayush.png" 
+                className="w-full h-full object-cover object-top hover:scale-110 transition duration-1000 ease-out-quint" 
+                alt="Ayush Singh" 
+              />
+            </motion.div>
+            
+            {/* SOCIAL LOGOS */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              className="flex items-center gap-4"
+            >
+              <a 
+                href="https://github.com/ayush2093" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition duration-300 shadow-lg"
+                title="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/ayush-singh-622951297/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition duration-300 shadow-lg"
+                title="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a 
+                href="https://www.instagram.com/_.ayush._chauhan._/?hl=en" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition duration-300 shadow-lg"
+                title="Instagram"
+              >
+                <Instagram size={18} />
+              </a>
+            </motion.div>
+          </div>
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
