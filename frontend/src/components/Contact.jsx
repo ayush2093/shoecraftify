@@ -48,7 +48,7 @@
 //     try {
 //       const response = await axios.post('/api/contact/send', {
 //         ...formData,
-//         toEmail: 'ramkumar9219447537@gmail.com',
+//         toEmail: 'ayushsingh2093@gmail.com',
 //         replyTo: formData.email,
 //       });
 
@@ -132,7 +132,7 @@
               
 //               <div className="space-y-6">
 //                 <a 
-//                   href="mailto:ramkumar9219447537@gmail.com"
+//                   href="mailto:ayushsingh2093@gmail.com"
 //                   className="group flex items-center gap-6 p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 transition-all"
 //                 >
 //                   <motion.div 
@@ -143,14 +143,14 @@
 //                   </motion.div>
 //                   <div className="flex-1">
 //                     <p className="text-sm uppercase tracking-widest text-white/50">Email</p>
-//                     <p className="text-xl font-bold mt-1">ramkumar9219447537@gmail.com</p>
+//                     <p className="text-xl font-bold mt-1">ayushsingh2093@gmail.com</p>
 //                     <p className="text-sm text-white/40 mt-2">24-hour response</p>
 //                   </div>
 //                   <ChevronRight className="text-white/30 group-hover:text-blue-400 transition-colors" />
 //                 </a>
 
 //                 <a 
-//                   href="https://wa.me/919219447537"
+//                   href="https://wa.me/917061177866"
 //                   target="_blank"
 //                   rel="noopener noreferrer"
 //                   className="group flex items-center gap-6 p-6 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-green-500/30 transition-all"
@@ -164,7 +164,7 @@
 //                   </motion.div>
 //                   <div className="flex-1">
 //                     <p className="text-sm uppercase tracking-widest text-white/50">Phone / WhatsApp</p>
-//                     <p className="text-xl font-bold mt-1">+91 92194 47537</p>
+//                     <p className="text-xl font-bold mt-1">+91 70611 77866</p>
 //                     <p className="text-sm text-white/40 mt-2">Available now</p>
 //                   </div>
 //                   <ArrowRight className="text-white/30 group-hover:text-green-400 transition-colors" />
@@ -530,7 +530,7 @@
 //           </Link>
           
 //           <a
-//             href="https://wa.me/919219447537"
+//             href="https://wa.me/917061177866"
 //             target="_blank"
 //             rel="noopener noreferrer"
 //             className="px-12 py-5 bg-white/10 border border-white/20 text-white rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/20 transition inline-flex items-center justify-center gap-2"
@@ -598,7 +598,7 @@ const Contact = () => {
     try {
       const response = await axios.post('/api/contact/send', {
         ...formData,
-        toEmail: 'ramkumar9219447537@gmail.com',
+        toEmail: 'ayushsingh2093@gmail.com',
         replyTo: formData.email,
       });
 
@@ -683,7 +683,7 @@ const Contact = () => {
               
               <div className="space-y-4 sm:space-y-6">
                 <a 
-                  href="mailto:ramkumar9219447537@gmail.com"
+                  href="mailto:ayushsingh2093@gmail.com"
                   className="group flex items-center gap-3 sm:gap-4 md:gap-6 p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 transition-all"
                 >
                   <motion.div 
@@ -695,7 +695,7 @@ const Contact = () => {
                   <div className="flex-1 min-w-0">
                     <p className="text-xs sm:text-sm uppercase tracking-widest text-white/50">Email</p>
                     <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mt-1 truncate">
-                      ramkumar9219447537@gmail.com
+                      ayushsingh2093@gmail.com
                     </p>
                     <p className="text-xs sm:text-sm text-white/40 mt-1 sm:mt-2">24-hour response</p>
                   </div>
@@ -703,7 +703,7 @@ const Contact = () => {
                 </a>
 
                 <a 
-                  href="https://wa.me/919219447537"
+                  href="https://wa.me/917061177866"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3 sm:gap-4 md:gap-6 p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-green-500/30 transition-all"
@@ -717,7 +717,7 @@ const Contact = () => {
                   </motion.div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs sm:text-sm uppercase tracking-widest text-white/50">Phone / WhatsApp</p>
-                    <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mt-1">+91 92194 47537</p>
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mt-1">+91 70611 77866</p>
                     <p className="text-xs sm:text-sm text-white/40 mt-1 sm:mt-2">Available now</p>
                   </div>
                   <ArrowRight className="text-white/30 group-hover:text-green-400 transition-colors flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5" />
@@ -1087,7 +1087,7 @@ const Contact = () => {
           </Link>
           
           <a
-            href="https://wa.me/919219447537"
+            href="https://wa.me/917061177866"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 bg-white/10 border border-white/20 text-white rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white/20 transition inline-flex items-center justify-center gap-2"

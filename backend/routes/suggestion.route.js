@@ -21,12 +21,15 @@ suggestionRouter.get('/', (req, res) => {
 
 suggestionRouter.post('/generate-shoe', async (req, res) => {
   const { prompt } = req.body;
+  console.log('🤖 AI Image Generation request received. Prompt:', prompt);
+  console.log('🔑 HF_TOKEN prefix:', process.env.HF_TOKEN ? `${process.env.HF_TOKEN.substring(0, 8)}...` : 'undefined');
 
   try {
     // Model strategy: SDXL is often more reliable on the free tier than SD3
     const modelId = "stabilityai/stable-diffusion-xl-base-1.0"; 
+    const hfInst = new HfInference(process.env.HF_TOKEN);
 
-   const response = await hf.textToImage({
+   const response = await hfInst.textToImage({
     model: modelId,
     inputs: `
   single custom sneaker, professional 3D product render,
@@ -56,10 +59,13 @@ suggestionRouter.post('/generate-shoe', async (req, res) => {
     res.json({ success: true, imageUrl: dataUrl });
 
   } catch (error) {
-    console.error("Hugging Face Error:", error.message);
+    console.error("Hugging Face Error:", error);
+    if (error.cause) {
+      console.error("Hugging Face Error Cause:", error.cause);
+    }
     
     // Specifically catch the 401 and explain it
-    if (error.message.includes("401")) {
+    if (error.message && error.message.includes("401")) {
       return res.status(401).json({ 
         success: false, 
         error: "Invalid API Token. Please check your HF_TOKEN in the .env file." 

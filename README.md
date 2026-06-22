@@ -75,7 +75,7 @@ We've partnered with premium footwear brands:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ramkumar-lpu/ShoeCraftify.git
+   git clone https://github.com/ayush2093/shoecraftify.git
    cd ShoeCraftify
    ```
 

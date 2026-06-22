@@ -206,21 +206,19 @@ router.post('/register', registrationOTPLimiter, validateRegisterInput, async (r
       registrationStatus: 'pending_verification'
     });
     
-    // Generate OTP
+    // Generate verification OTP
     const otp = user.generateVerificationOTP();
-    console.log(' Generated OTP for user:', user._id);
-    
     await user.save();
+    console.log('👤 User registered: %s. Sending verification OTP...', user._id);
     
     // Send verification email
-    console.log(' Sending verification email to:', normalizedEmail);
     await sendVerificationOTPEmail(user, otp);
     
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
-      message: 'Registration initiated! Please check your email for verification OTP.',
+      message: 'OTP verification code sent to your email. Please verify to complete registration.',
       email: normalizedEmail,
-      userId: user._id
+      registrationStatus: 'pending_verification'
     });
     
   } catch (error) {
@@ -474,7 +472,8 @@ router.post('/login', authLimiter, validateLoginInput, async (req, res, next) =>
           lastName: user.lastName,
           email: user.email,
           fullName: user.fullName,
-          profilePicture: user.profilePicture?.url,
+          profilePicture: user.profileImage,
+          profileImage: user.profileImage,
           accountType: user.accountType,
           isEmailVerified: user.isEmailVerified,
           preferences: user.preferences
@@ -692,8 +691,7 @@ router.put('/update-profile', authMiddleware, async (req, res) => {
           error: 'Invalid image URL' 
         });
       }
-      updateData['profilePicture.url'] = profileImage;
-      updateData['profilePicture.uploadedAt'] = new Date();
+      updateData.profileImage = profileImage;
     }
     
     if (firstName) {
@@ -737,7 +735,7 @@ router.put('/update-profile', authMiddleware, async (req, res) => {
     }
 
     // Update session
-    req.user.profilePicture = user.profilePicture;
+    req.user.profileImage = user.profileImage;
     req.user.firstName = user.firstName;
     req.user.lastName = user.lastName;
 
@@ -750,7 +748,8 @@ router.put('/update-profile', authMiddleware, async (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         fullName: user.fullName,
-        profilePicture: user.profilePicture,
+        profilePicture: user.profileImage,
+        profileImage: user.profileImage,
         accountType: user.accountType,
         isEmailVerified: user.isEmailVerified,
         createdAt: user.createdAt
@@ -779,7 +778,8 @@ router.get('/me', authMiddleware, (req, res) => {
         lastName: req.user.lastName,
         email: req.user.email,
         fullName: req.user.fullName,
-        profilePicture: req.user.profilePicture,
+        profilePicture: req.user.profileImage,
+        profileImage: req.user.profileImage,
         accountType: req.user.accountType,
         isEmailVerified: req.user.isEmailVerified,
         createdAt: req.user.createdAt
@@ -806,7 +806,8 @@ router.get('/user', (req, res) => {
         lastName: req.user.lastName,
         email: req.user.email,
         fullName: req.user.fullName,
-        profilePicture: req.user.profilePicture,
+        profilePicture: req.user.profileImage,
+        profileImage: req.user.profileImage,
         accountType: req.user.accountType,
         isEmailVerified: req.user.isEmailVerified,
         createdAt: req.user.createdAt

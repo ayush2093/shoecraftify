@@ -172,20 +172,16 @@ const Login = ({ onLoginSuccess }) => {
       });
 
       if (response.data.success) {
-        const normalizedEmail = signupForm.email.trim().toLowerCase();
-        
-        // Use sessionStorage instead of localStorage (more secure)
-        sessionStorage.setItem('pendingVerificationEmail', normalizedEmail);
-        sessionStorage.setItem('otpSentTimestamp', Date.now().toString());
-        
-        navigate('/otp-verification', {
-          replace: true,
-          state: {
-            email: normalizedEmail,
-            registrationSuccess: true,
-            message: 'Registration successful! Please verify your email.'
-          }
-        });
+        if (response.data.registrationStatus === 'pending_verification') {
+          sessionStorage.setItem('pendingVerificationEmail', signupForm.email.trim().toLowerCase());
+          sessionStorage.setItem('otpSentTimestamp', Date.now().toString());
+          navigate('/otp-verification', { 
+            state: { email: signupForm.email.trim().toLowerCase() } 
+          });
+        } else {
+          onLoginSuccess?.(response.data.user);
+          navigate('/profile', { replace: true });
+        }
       } else {
         setErrors({ form: response.data.message || 'Registration failed' });
       }
