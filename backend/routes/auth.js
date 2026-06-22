@@ -211,8 +211,8 @@ router.post('/register', registrationOTPLimiter, validateRegisterInput, async (r
     await user.save();
     console.log('👤 User registered: %s. Sending verification OTP...', user._id);
     
-    // Send verification email
-    await sendVerificationOTPEmail(user, otp);
+    // Send verification email in the background to prevent blocking
+    sendVerificationOTPEmail(user, otp).catch(err => console.error('Email send error:', err));
     
     return res.status(201).json({
       success: true,
@@ -361,8 +361,8 @@ router.post('/resend-registration-otp', registrationOTPLimiter, async (req, res)
     const otp = user.generateVerificationOTP();
     await user.save();
     
-    console.log(' Sending new OTP to:', normalizedEmail);
-    await sendVerificationOTPEmail(user, otp);
+    // Send verification email in the background to prevent blocking
+    sendVerificationOTPEmail(user, otp).catch(err => console.error('Email send error:', err));
     
     res.json({
       success: true,
@@ -531,7 +531,8 @@ router.post('/forgot-password', otpLimiter, async (req, res) => {
     const otp = user.generateResetOTP();
     await user.save();
     
-    await sendPasswordResetOTPEmail(user, otp);
+    // Send password reset email in the background to prevent blocking
+    sendPasswordResetOTPEmail(user, otp).catch(err => console.error('Email send error:', err));
     
     res.json({
       success: true,
