@@ -25,8 +25,8 @@ suggestionRouter.post('/generate-shoe', async (req, res) => {
   console.log('🔑 HF_TOKEN prefix:', process.env.HF_TOKEN ? `${process.env.HF_TOKEN.substring(0, 8)}...` : 'undefined');
 
   try {
-    // Model strategy: SDXL is often more reliable on the free tier than SD3
-    const modelId = "stabilityai/stable-diffusion-xl-base-1.0"; 
+    // Model strategy: FLUX.1-schnell is currently free and active on the serverless tier
+    const modelId = "black-forest-labs/FLUX.1-schnell"; 
     const hfInst = new HfInference(process.env.HF_TOKEN);
 
    const response = await hfInst.textToImage({
